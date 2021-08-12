@@ -1,0 +1,10 @@
+feature,mean_importance
+Pclass,0.0
+Name,0.0
+Sex,0.0
+SibSp,0.0
+Ticket,0.0
+Fare,0.0
+Embarked,0.0
+Age,3.868342932282631
+Parch,4.19070484329127

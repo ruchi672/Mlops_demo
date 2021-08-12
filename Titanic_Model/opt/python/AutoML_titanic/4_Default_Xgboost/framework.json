@@ -1,0 +1,194 @@
+{
+    "uid": "dccf86dd-f8d7-47c6-8a0f-95745243adde",
+    "name": "4_Default_Xgboost",
+    "preprocessing": [
+        {
+            "remove_columns": [
+                "Cabin"
+            ],
+            "missing_values": [
+                {
+                    "fill_method": "na_fill_median",
+                    "fill_params": {
+                        "Age": 26.0
+                    },
+                    "datetime_columns": []
+                }
+            ],
+            "categorical": [
+                {
+                    "convert_method": "categorical_to_int",
+                    "convert_params": {
+                        "Name": {
+                            "Abrahim, Mrs. Joseph (Sophie Halaut Easu)": 0,
+                            "Caldwell, Mr. Albert Francis": 1,
+                            "Connolly, Miss. Kate": 2,
+                            "Davies, Mr. John Samuel": 3,
+                            "Hirvonen, Mrs. Alexander (Helga E Lindqvist)": 4,
+                            "Ilieff, Mr. Ylio": 5,
+                            "Kelly, Mr. James": 6,
+                            "Myles, Mr. Thomas Francis": 7,
+                            "Svensson, Mr. Johan Cervin": 8,
+                            "Wilkes, Mrs. James (Ellen Needs)": 9,
+                            "Wirz, Mr. Albert": 10
+                        },
+                        "Sex": {
+                            "female": 0,
+                            "male": 1
+                        },
+                        "Ticket": {
+                            "240276": 0,
+                            "248738": 1,
+                            "2657": 2,
+                            "3101298": 3,
+                            "315154": 4,
+                            "330911": 5,
+                            "330972": 6,
+                            "349220": 7,
+                            "363272": 8,
+                            "7538": 9,
+                            "A/4 48871": 10
+                        },
+                        "Embarked": {
+                            "C": 0,
+                            "Q": 1,
+                            "S": 2
+                        }
+                    },
+                    "columns": [
+                        "Name",
+                        "Sex",
+                        "Ticket",
+                        "Embarked"
+                    ]
+                }
+            ],
+            "ml_task": "binary_classification",
+            "params": {
+                "columns_preprocessing": {
+                    "Name": [
+                        "categorical_to_int"
+                    ],
+                    "Sex": [
+                        "categorical_to_int"
+                    ],
+                    "Age": [
+                        "na_fill_median"
+                    ],
+                    "Ticket": [
+                        "categorical_to_int"
+                    ],
+                    "Cabin": [
+                        "remove_column"
+                    ],
+                    "Embarked": [
+                        "categorical_to_int"
+                    ]
+                },
+                "target_preprocessing": [
+                    "na_exclude"
+                ],
+                "ml_task": "binary_classification"
+            }
+        }
+    ],
+    "learners": [
+        {
+            "library_version": "1.4.2",
+            "algorithm_name": "Extreme Gradient Boosting",
+            "algorithm_short_name": "Xgboost",
+            "uid": "206f996f-cba0-45df-a7d7-f8cc521b5aa0",
+            "params": {
+                "model_type": "Xgboost",
+                "ml_task": "binary_classification",
+                "n_jobs": -1,
+                "objective": "binary:logistic",
+                "eta": 0.075,
+                "max_depth": 6,
+                "min_child_weight": 1,
+                "subsample": 1.0,
+                "colsample_bytree": 1.0,
+                "seed": 4,
+                "eval_metric": "logloss",
+                "explain_level": 2
+            },
+            "name": "learner_fold_0",
+            "best_ntree_limit": 404
+        }
+    ],
+    "params": {
+        "additional": {
+            "max_rounds": 10000,
+            "early_stopping_rounds": 50,
+            "max_rows_limit": null,
+            "max_cols_limit": null
+        },
+        "preprocessing": {
+            "columns_preprocessing": {
+                "Name": [
+                    "categorical_to_int"
+                ],
+                "Sex": [
+                    "categorical_to_int"
+                ],
+                "Age": [
+                    "na_fill_median"
+                ],
+                "Ticket": [
+                    "categorical_to_int"
+                ],
+                "Cabin": [
+                    "remove_column"
+                ],
+                "Embarked": [
+                    "categorical_to_int"
+                ]
+            },
+            "target_preprocessing": [
+                "na_exclude"
+            ],
+            "ml_task": "binary_classification"
+        },
+        "validation_strategy": {
+            "validation_type": "split",
+            "train_ratio": 0.75,
+            "shuffle": true,
+            "stratify": true,
+            "X_path": "AutoML_titanic/X.data",
+            "y_path": "AutoML_titanic/y.data",
+            "results_path": "AutoML_titanic"
+        },
+        "learner": {
+            "model_type": "Xgboost",
+            "ml_task": "binary_classification",
+            "n_jobs": -1,
+            "objective": "binary:logistic",
+            "eta": 0.075,
+            "max_depth": 6,
+            "min_child_weight": 1,
+            "subsample": 1.0,
+            "colsample_bytree": 1.0,
+            "seed": 4,
+            "eval_metric": "logloss",
+            "explain_level": 2
+        },
+        "automl_random_state": 1234,
+        "ml_task": "binary_classification",
+        "explain_level": 2,
+        "name": "4_Default_Xgboost",
+        "status": "initialized",
+        "final_loss": null,
+        "train_time": null,
+        "data_type": "original",
+        "max_time_for_learner": 360.0
+    },
+    "saved": [
+        "4_Default_Xgboost/learner_fold_0.xgboost"
+    ],
+    "predictions_fname": "4_Default_Xgboost/predictions_validation.csv",
+    "metric_name": "logloss",
+    "final_loss": 0.1932867258787155,
+    "train_time": 1.3846349716186523,
+    "is_stacked": false,
+    "threshold": 0.14888112246990204
+}

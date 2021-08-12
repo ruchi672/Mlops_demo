@@ -1,0 +1,184 @@
+{
+    "uid": "34f6faa7-c837-4cb5-be1b-b800595a2308",
+    "name": "2_DecisionTree",
+    "preprocessing": [
+        {
+            "remove_columns": [
+                "Cabin"
+            ],
+            "missing_values": [
+                {
+                    "fill_method": "na_fill_median",
+                    "fill_params": {
+                        "Age": 26.0
+                    },
+                    "datetime_columns": []
+                }
+            ],
+            "categorical": [
+                {
+                    "convert_method": "categorical_to_int",
+                    "convert_params": {
+                        "Name": {
+                            "Abrahim, Mrs. Joseph (Sophie Halaut Easu)": 0,
+                            "Caldwell, Mr. Albert Francis": 1,
+                            "Connolly, Miss. Kate": 2,
+                            "Davies, Mr. John Samuel": 3,
+                            "Hirvonen, Mrs. Alexander (Helga E Lindqvist)": 4,
+                            "Ilieff, Mr. Ylio": 5,
+                            "Kelly, Mr. James": 6,
+                            "Myles, Mr. Thomas Francis": 7,
+                            "Svensson, Mr. Johan Cervin": 8,
+                            "Wilkes, Mrs. James (Ellen Needs)": 9,
+                            "Wirz, Mr. Albert": 10
+                        },
+                        "Sex": {
+                            "female": 0,
+                            "male": 1
+                        },
+                        "Ticket": {
+                            "240276": 0,
+                            "248738": 1,
+                            "2657": 2,
+                            "3101298": 3,
+                            "315154": 4,
+                            "330911": 5,
+                            "330972": 6,
+                            "349220": 7,
+                            "363272": 8,
+                            "7538": 9,
+                            "A/4 48871": 10
+                        },
+                        "Embarked": {
+                            "C": 0,
+                            "Q": 1,
+                            "S": 2
+                        }
+                    },
+                    "columns": [
+                        "Name",
+                        "Sex",
+                        "Ticket",
+                        "Embarked"
+                    ]
+                }
+            ],
+            "ml_task": "binary_classification",
+            "params": {
+                "columns_preprocessing": {
+                    "Name": [
+                        "categorical_to_int"
+                    ],
+                    "Sex": [
+                        "categorical_to_int"
+                    ],
+                    "Age": [
+                        "na_fill_median"
+                    ],
+                    "Ticket": [
+                        "categorical_to_int"
+                    ],
+                    "Cabin": [
+                        "remove_column"
+                    ],
+                    "Embarked": [
+                        "categorical_to_int"
+                    ]
+                },
+                "target_preprocessing": [
+                    "na_exclude"
+                ],
+                "ml_task": "binary_classification"
+            }
+        }
+    ],
+    "learners": [
+        {
+            "library_version": "0.24.2",
+            "algorithm_name": "Decision Tree",
+            "algorithm_short_name": "Decision Tree",
+            "uid": "e7bbb5f2-c2d9-43b1-bf6f-6dbb53eb1801",
+            "params": {
+                "model_type": "Decision Tree",
+                "ml_task": "binary_classification",
+                "n_jobs": -1,
+                "seed": 1235,
+                "criterion": "gini",
+                "max_depth": 3,
+                "explain_level": 2
+            },
+            "name": "learner_fold_0"
+        }
+    ],
+    "params": {
+        "additional": {
+            "trees_in_step": 1,
+            "train_cant_improve_limit": 0,
+            "max_steps": 1,
+            "max_rows_limit": null,
+            "max_cols_limit": null
+        },
+        "preprocessing": {
+            "columns_preprocessing": {
+                "Name": [
+                    "categorical_to_int"
+                ],
+                "Sex": [
+                    "categorical_to_int"
+                ],
+                "Age": [
+                    "na_fill_median"
+                ],
+                "Ticket": [
+                    "categorical_to_int"
+                ],
+                "Cabin": [
+                    "remove_column"
+                ],
+                "Embarked": [
+                    "categorical_to_int"
+                ]
+            },
+            "target_preprocessing": [
+                "na_exclude"
+            ],
+            "ml_task": "binary_classification"
+        },
+        "validation_strategy": {
+            "validation_type": "split",
+            "train_ratio": 0.75,
+            "shuffle": true,
+            "stratify": true,
+            "X_path": "AutoML_titanic/X.data",
+            "y_path": "AutoML_titanic/y.data",
+            "results_path": "AutoML_titanic"
+        },
+        "learner": {
+            "model_type": "Decision Tree",
+            "ml_task": "binary_classification",
+            "n_jobs": -1,
+            "seed": 1235,
+            "criterion": "gini",
+            "max_depth": 3,
+            "explain_level": 2
+        },
+        "automl_random_state": 1234,
+        "ml_task": "binary_classification",
+        "explain_level": 2,
+        "name": "2_DecisionTree",
+        "status": "initialized",
+        "final_loss": null,
+        "train_time": null,
+        "data_type": "original",
+        "max_time_for_learner": 360.0
+    },
+    "saved": [
+        "2_DecisionTree/learner_fold_0.decision_tree"
+    ],
+    "predictions_fname": "2_DecisionTree/predictions_validation.csv",
+    "metric_name": "logloss",
+    "final_loss": 1.000000500029089e-06,
+    "train_time": 4.018054723739624,
+    "is_stacked": false,
+    "threshold": 0.0
+}

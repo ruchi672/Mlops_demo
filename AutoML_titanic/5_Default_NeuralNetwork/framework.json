@@ -1,0 +1,248 @@
+{
+    "uid": "8c808c37-7a1f-4e22-8c1c-dda0067e756b",
+    "name": "5_Default_NeuralNetwork",
+    "preprocessing": [
+        {
+            "remove_columns": [
+                "Cabin"
+            ],
+            "missing_values": [
+                {
+                    "fill_method": "na_fill_median",
+                    "fill_params": {
+                        "Age": 26.0
+                    },
+                    "datetime_columns": []
+                }
+            ],
+            "categorical": [
+                {
+                    "convert_method": "categorical_to_int",
+                    "convert_params": {
+                        "Name": {
+                            "Abrahim, Mrs. Joseph (Sophie Halaut Easu)": 0,
+                            "Caldwell, Mr. Albert Francis": 1,
+                            "Connolly, Miss. Kate": 2,
+                            "Davies, Mr. John Samuel": 3,
+                            "Hirvonen, Mrs. Alexander (Helga E Lindqvist)": 4,
+                            "Ilieff, Mr. Ylio": 5,
+                            "Kelly, Mr. James": 6,
+                            "Myles, Mr. Thomas Francis": 7,
+                            "Svensson, Mr. Johan Cervin": 8,
+                            "Wilkes, Mrs. James (Ellen Needs)": 9,
+                            "Wirz, Mr. Albert": 10
+                        },
+                        "Sex": {
+                            "female": 0,
+                            "male": 1
+                        },
+                        "Ticket": {
+                            "240276": 0,
+                            "248738": 1,
+                            "2657": 2,
+                            "3101298": 3,
+                            "315154": 4,
+                            "330911": 5,
+                            "330972": 6,
+                            "349220": 7,
+                            "363272": 8,
+                            "7538": 9,
+                            "A/4 48871": 10
+                        },
+                        "Embarked": {
+                            "C": 0,
+                            "Q": 1,
+                            "S": 2
+                        }
+                    },
+                    "columns": [
+                        "Name",
+                        "Sex",
+                        "Ticket",
+                        "Embarked"
+                    ]
+                }
+            ],
+            "scale": [
+                {
+                    "scale": [
+                        0.30000000000000004,
+                        3.2078029864690882,
+                        0.5,
+                        11.32838127104761,
+                        3.0624971655315685,
+                        7.269307738595196,
+                        0.7888106377466154
+                    ],
+                    "mean": [
+                        2.9,
+                        4.1,
+                        0.5,
+                        28.633333333333333,
+                        5.233333333333333,
+                        11.604040000000001,
+                        1.3333333333333333
+                    ],
+                    "var": [
+                        0.09000000000000004,
+                        10.290000000000003,
+                        0.25,
+                        128.33222222222224,
+                        9.378888888888891,
+                        52.84283499840001,
+                        0.6222222222222221
+                    ],
+                    "n_samples_seen": 30,
+                    "n_features_in": 7,
+                    "columns": [
+                        "Pclass",
+                        "Name",
+                        "Sex",
+                        "Age",
+                        "Ticket",
+                        "Fare",
+                        "Embarked"
+                    ],
+                    "scale_method": "scale_normal"
+                }
+            ],
+            "ml_task": "binary_classification",
+            "params": {
+                "columns_preprocessing": {
+                    "Pclass": [
+                        "scale_normal"
+                    ],
+                    "Name": [
+                        "categorical_to_int",
+                        "scale_normal"
+                    ],
+                    "Sex": [
+                        "categorical_to_int",
+                        "scale_normal"
+                    ],
+                    "Age": [
+                        "na_fill_median",
+                        "scale_normal"
+                    ],
+                    "Ticket": [
+                        "categorical_to_int",
+                        "scale_normal"
+                    ],
+                    "Fare": [
+                        "scale_normal"
+                    ],
+                    "Cabin": [
+                        "remove_column"
+                    ],
+                    "Embarked": [
+                        "categorical_to_int",
+                        "scale_normal"
+                    ]
+                },
+                "target_preprocessing": [
+                    "na_exclude"
+                ],
+                "ml_task": "binary_classification"
+            }
+        }
+    ],
+    "learners": [
+        {
+            "library_version": "0.24.2",
+            "algorithm_name": "Neural Network",
+            "algorithm_short_name": "Neural Network",
+            "uid": "4991035b-4257-41ac-add7-a3838942ec30",
+            "params": {
+                "model_type": "Neural Network",
+                "ml_task": "binary_classification",
+                "n_jobs": -1,
+                "dense_1_size": 32,
+                "dense_2_size": 16,
+                "learning_rate": 0.05,
+                "seed": 5,
+                "explain_level": 2
+            },
+            "name": "learner_fold_0"
+        }
+    ],
+    "params": {
+        "additional": {
+            "max_rows_limit": null,
+            "max_cols_limit": null
+        },
+        "preprocessing": {
+            "columns_preprocessing": {
+                "Pclass": [
+                    "scale_normal"
+                ],
+                "Name": [
+                    "categorical_to_int",
+                    "scale_normal"
+                ],
+                "Sex": [
+                    "categorical_to_int",
+                    "scale_normal"
+                ],
+                "Age": [
+                    "na_fill_median",
+                    "scale_normal"
+                ],
+                "Ticket": [
+                    "categorical_to_int",
+                    "scale_normal"
+                ],
+                "Fare": [
+                    "scale_normal"
+                ],
+                "Cabin": [
+                    "remove_column"
+                ],
+                "Embarked": [
+                    "categorical_to_int",
+                    "scale_normal"
+                ]
+            },
+            "target_preprocessing": [
+                "na_exclude"
+            ],
+            "ml_task": "binary_classification"
+        },
+        "validation_strategy": {
+            "validation_type": "split",
+            "train_ratio": 0.75,
+            "shuffle": true,
+            "stratify": true,
+            "X_path": "AutoML_titanic/X.data",
+            "y_path": "AutoML_titanic/y.data",
+            "results_path": "AutoML_titanic"
+        },
+        "learner": {
+            "model_type": "Neural Network",
+            "ml_task": "binary_classification",
+            "n_jobs": -1,
+            "dense_1_size": 32,
+            "dense_2_size": 16,
+            "learning_rate": 0.05,
+            "seed": 5,
+            "explain_level": 2
+        },
+        "automl_random_state": 1234,
+        "ml_task": "binary_classification",
+        "explain_level": 2,
+        "name": "5_Default_NeuralNetwork",
+        "status": "initialized",
+        "final_loss": null,
+        "train_time": null,
+        "data_type": "original",
+        "max_time_for_learner": 360.0
+    },
+    "saved": [
+        "5_Default_NeuralNetwork/learner_fold_0.neural_network"
+    ],
+    "predictions_fname": "5_Default_NeuralNetwork/predictions_validation.csv",
+    "metric_name": "logloss",
+    "final_loss": 0.013574297539369123,
+    "train_time": 0.710446834564209,
+    "is_stacked": false,
+    "threshold": 0.49999948443383085
+}

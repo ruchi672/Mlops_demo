@@ -1,0 +1,8 @@
+if (Fare > 7.429) and (Parch <= 0.5) and (Age > 17.5) then class: 0 (proba: 100.0%) | based on 15 samples
+
+if (Fare <= 7.429) then class: 1 (proba: 100.0%) | based on 10 samples
+
+if (Fare > 7.429) and (Parch > 0.5) then class: 1 (proba: 100.0%) | based on 4 samples
+
+if (Fare > 7.429) and (Parch <= 0.5) and (Age <= 17.5) then class: 1 (proba: 100.0%) | based on 1 samples
+
